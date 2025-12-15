@@ -1,0 +1,40 @@
+const isConnectionOkay = true  // a condition
+
+console.log("Starting the program....")
+
+const p = new Promise(  //creating a promise
+
+    (resolve, reject)=>{  //executor function //resolve means promise is successful, reject means promise is failed
+
+        setTimeout(() => {              
+            if(isConnectionOkay){
+
+                resolve([
+                    {id : 1, name : "John"},  //data to be sent if promise is resolved
+                    {id : 2, name : "Jane"},
+                    {id : 3, name : "Doe"}
+                ])
+            }else{
+
+                reject("Connection failed")
+            }
+        }, 2000);
+    }
+)
+
+p.then(
+    (reponse)=>{
+        console.log(reponse)
+        console.log("Connection is okay, proceeding with the program")
+    }
+
+).catch(
+    (error)=>{
+        console.log(error)
+        console.log("Connection failed, stopping the program")
+    }
+
+).finally(()=>{
+    console.log("Program ended")
+
+})
