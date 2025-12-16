@@ -1,8 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import Student from "./models/student.js";
-import studentRouter from "./routers/studentRouter.js";
+// import Student from "./models/student.js";
+// import studentRouter from "./routers/studentRouter.js";
 import userRouter from "./routers/userRouter.js";
 import jwt from "jsonwebtoken";
 
@@ -49,9 +49,9 @@ mongoose.connect(connectionString).then(
 
 
 
-app.use("/students",studentRouter);
+// app.use("/students",studentRouter);
 app.use("/users",userRouter); //all routes starting with /users will be handled by userRouter
-
+app.use("/products", productRouter);
 
 
 app.listen(5000,
